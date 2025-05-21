@@ -3,14 +3,14 @@ package handler
 import (
 	"context"
 	"errors"
-	"github.com/gongshen/xxl-job-client/constants"
+	"github.com/gomsr/xxl-job-client/constants"
 	"log"
 	"sync"
 	"sync/atomic"
 
-	"github.com/gongshen/xxl-job-client/logger"
-	"github.com/gongshen/xxl-job-client/queue"
-	"github.com/gongshen/xxl-job-client/transport"
+	"github.com/gomsr/xxl-job-client/logger"
+	"github.com/gomsr/xxl-job-client/queue"
+	"github.com/gomsr/xxl-job-client/transport"
 )
 
 type JobHandlerFunc func(ctx context.Context) error

@@ -6,7 +6,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/gongshen/xxl-job-client/constants"
+	"github.com/gomsr/xxl-job-client/constants"
 	"io"
 	"os"
 	"strings"

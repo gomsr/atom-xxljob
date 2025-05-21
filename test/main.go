@@ -1,17 +1,9 @@
-# xxl-job-client
-
-## xxl-job go sdk
-兼容 xxl-job v2.4.0
-
-## demo
-
-```go
 package main
 
 import (
 	"context"
 	"fmt"
-	xxl "github.com/gomsr/xxl-job-client"
+	"github.com/gomsr/xxl-job-client"
 	"github.com/gomsr/xxl-job-client/logger"
 	"github.com/gomsr/xxl-job-client/option"
 	"log"
@@ -19,13 +11,13 @@ import (
 
 func main() {
 	client := xxl.NewXxlClient(
-		option.WithAppName("执行器的名字"),
+		option.WithAppName("xxl-app-test"),
 		option.WithClientPort(8080),
-		option.WithAdminAddress("xxl-job接入地址"),
+		option.WithAdminAddress("http://192.168.191.122:8888/xxl-job-admin/"),
 	)
 	defer func() {
 		client.ExitApplication()
-		client.Close()
+		_ = client.Close()
 	}()
 	client.RegisterJob("HelloWorld", HelloWorld)
 	if err := client.Run(); err != nil {
@@ -39,4 +31,3 @@ func HelloWorld(ctx context.Context) error {
 	}
 	return nil
 }
-```

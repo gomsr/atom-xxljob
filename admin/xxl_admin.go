@@ -1,8 +1,8 @@
 package admin
 
 import (
-	"github.com/gongshen/xxl-job-client/executor"
-	"github.com/gongshen/xxl-job-client/transport"
+	"github.com/gomsr/xxl-job-client/executor"
+	"github.com/gomsr/xxl-job-client/transport"
 	"log"
 	"net/http"
 	"sync"

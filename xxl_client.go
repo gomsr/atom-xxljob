@@ -2,11 +2,11 @@ package xxl
 
 import (
 	"context"
-	"github.com/gongshen/xxl-job-client/admin"
-	executor2 "github.com/gongshen/xxl-job-client/executor"
-	"github.com/gongshen/xxl-job-client/handler"
-	"github.com/gongshen/xxl-job-client/logger"
-	"github.com/gongshen/xxl-job-client/option"
+	"github.com/gomsr/xxl-job-client/admin"
+	executor2 "github.com/gomsr/xxl-job-client/executor"
+	"github.com/gomsr/xxl-job-client/handler"
+	"github.com/gomsr/xxl-job-client/logger"
+	"github.com/gomsr/xxl-job-client/option"
 )
 
 type XxlClient struct {

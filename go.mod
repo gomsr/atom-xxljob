@@ -1,4 +1,4 @@
-module github.com/gongshen/xxl-job-client
+module github.com/gomsr/xxl-job-client
 
 go 1.20
 

@@ -2,8 +2,8 @@ package handler
 
 import (
 	"encoding/json"
-	"github.com/gongshen/xxl-job-client/logger"
-	"github.com/gongshen/xxl-job-client/transport"
+	"github.com/gomsr/xxl-job-client/logger"
+	"github.com/gomsr/xxl-job-client/transport"
 	"log"
 )
 
