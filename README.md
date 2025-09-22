@@ -11,9 +11,9 @@ package main
 import (
 	"context"
 	"fmt"
-	xxl "github.com/gomsr/xxl-job-client"
-	"github.com/gomsr/xxl-job-client/logger"
-	"github.com/gomsr/xxl-job-client/option"
+	xxl "github.com/gomsr/atom-xxljob"
+	"github.com/gomsr/atom-xxljob/logger"
+	"github.com/gomsr/atom-xxljob/option"
 	"log"
 )
 

@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/gomsr/xxl-job-client/admin"
-	"github.com/gomsr/xxl-job-client/transport"
+	"github.com/gomsr/atom-xxljob/admin"
+	"github.com/gomsr/atom-xxljob/transport"
 )
 
 type RequestProcess struct {

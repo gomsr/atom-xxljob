@@ -3,7 +3,7 @@ package admin
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/gomsr/xxl-job-client/transport"
+	"github.com/gomsr/atom-xxljob/transport"
 	"io/ioutil"
 	"net/http"
 	"time"

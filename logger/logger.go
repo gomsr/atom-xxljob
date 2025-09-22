@@ -6,7 +6,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/gomsr/xxl-job-client/constants"
+	"github.com/gomsr/atom-xxljob/constants"
 	"io"
 	"os"
 	"strings"

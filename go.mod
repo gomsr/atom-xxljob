@@ -1,4 +1,4 @@
-module github.com/gomsr/xxl-job-client
+module github.com/gomsr/atom-xxljob
 
 go 1.20
 

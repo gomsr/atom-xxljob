@@ -3,17 +3,17 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/gomsr/xxl-job-client"
-	"github.com/gomsr/xxl-job-client/logger"
-	"github.com/gomsr/xxl-job-client/option"
+	"github.com/gomsr/atom-xxljob"
+	"github.com/gomsr/atom-xxljob/configx"
+	"github.com/gomsr/atom-xxljob/logger"
 	"log"
 )
 
 func main() {
-	client := xxl.NewXxlClient(
-		option.WithAppName("xxl-app-test"),
-		option.WithClientPort(8080),
-		option.WithAdminAddress("http://192.168.191.122:8888/xxl-job-admin/"),
+	client := xxl.NewXxlClientOps(
+		configx.WithAppName("xxl-app-test"),
+		configx.WithClientPort(8080),
+		configx.WithAdminAddress("http://192.168.191.122:8888/xxl-job-admin/"),
 	)
 	defer func() {
 		client.ExitApplication()

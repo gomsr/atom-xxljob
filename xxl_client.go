@@ -2,11 +2,11 @@ package xxl
 
 import (
 	"context"
-	"github.com/gomsr/xxl-job-client/admin"
-	executor2 "github.com/gomsr/xxl-job-client/executor"
-	"github.com/gomsr/xxl-job-client/handler"
-	"github.com/gomsr/xxl-job-client/logger"
-	"github.com/gomsr/xxl-job-client/option"
+	"github.com/gomsr/atom-xxljob/admin"
+	"github.com/gomsr/atom-xxljob/configx"
+	executor2 "github.com/gomsr/atom-xxljob/executor"
+	"github.com/gomsr/atom-xxljob/handler"
+	"github.com/gomsr/atom-xxljob/logger"
 )
 
 type XxlClient struct {
@@ -14,23 +14,22 @@ type XxlClient struct {
 	requestHandler *handler.RequestProcess
 }
 
-func NewXxlClient(opts ...option.Option) *XxlClient {
-	clientOps := option.NewClientOptions(opts...)
+func NewXxlClient(config configx.ClientConfig) *XxlClient {
 	executor := executor2.NewExecutor(
-		clientOps.AppName,
-		clientOps.Port,
+		config.AppName,
+		config.Port,
 	)
 
 	adminServer := admin.NewAdminServer(
-		clientOps.AdminAddr,
-		clientOps.Timeout,
-		clientOps.BeatTime,
+		config.AdminAddr,
+		config.Timeout,
+		config.BeatTime,
 		executor,
 	)
 
 	var requestHandler *handler.RequestProcess
 	adminServer.AccessToken = map[string]string{
-		"XXL-JOB-ACCESS-TOKEN": clientOps.AccessToken,
+		"XXL-JOB-ACCESS-TOKEN": config.AccessToken,
 	}
 
 	requestHandler = handler.NewRequestProcess(adminServer, &handler.HttpRequestHandler{})
@@ -41,6 +40,10 @@ func NewXxlClient(opts ...option.Option) *XxlClient {
 		requestHandler: requestHandler,
 		executor:       executor,
 	}
+}
+
+func NewXxlClientOps(opts ...configx.Option) *XxlClient {
+	return NewXxlClient(configx.NewClientOptions(opts...))
 }
 
 func (c *XxlClient) ExitApplication() {

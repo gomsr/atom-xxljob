@@ -1,4 +1,4 @@
-package option
+package configx
 
 import "time"
 
@@ -10,32 +10,10 @@ const (
 	defaultBeatTime  = 20 * time.Second
 )
 
-type Option func(*ClientOptions)
+type Option func(*ClientConfig)
 
-type ClientOptions struct {
-	//xxl admin 地址
-	AdminAddr []string
-
-	//token
-	AccessToken string
-
-	//执行期名
-	AppName string
-
-	//执行器端口
-	Port int
-
-	//请求admin超时时间
-	Timeout time.Duration
-
-	//执行器续约时间（超过30秒不续约admin会移除执行器，请设置到30秒以内）
-	BeatTime time.Duration
-
-	LogLevel int
-}
-
-func NewClientOptions(opts ...Option) ClientOptions {
-	options := ClientOptions{
+func NewClientOptions(opts ...Option) ClientConfig {
+	options := ClientConfig{
 		AdminAddr:   []string{defaultAdminAddr},
 		AccessToken: "",
 		AppName:     defaultAppName,
@@ -49,50 +27,50 @@ func NewClientOptions(opts ...Option) ClientOptions {
 	return options
 }
 
-// xxl admin address
+// WithAdminAddress xxl admin address
 func WithAdminAddress(addrs ...string) Option {
-	return func(o *ClientOptions) {
+	return func(o *ClientConfig) {
 		o.AdminAddr = addrs
 	}
 }
 
-// xxl admin accessToke
+// WithAccessToken xxl admin accessToke
 func WithAccessToken(token string) Option {
-	return func(o *ClientOptions) {
+	return func(o *ClientConfig) {
 		o.AccessToken = token
 	}
 }
 
-// app name
+// WithAppName app name
 func WithAppName(appName string) Option {
-	return func(o *ClientOptions) {
+	return func(o *ClientConfig) {
 		o.AppName = appName
 	}
 }
 
-// xxl client port
+// WithClientPort xxl client port
 func WithClientPort(port int) Option {
-	return func(o *ClientOptions) {
+	return func(o *ClientConfig) {
 		o.Port = port
 	}
 }
 
-// xxl admin request timeout
+// WithAdminTimeout xxl admin request timeout
 func WithAdminTimeout(timeout time.Duration) Option {
-	return func(o *ClientOptions) {
+	return func(o *ClientConfig) {
 		o.Timeout = timeout
 	}
 }
 
-// xxl admin renew time
+// WithBeatTime xxl admin renew time
 func WithBeatTime(beatTime time.Duration) Option {
-	return func(o *ClientOptions) {
+	return func(o *ClientConfig) {
 		o.BeatTime = beatTime
 	}
 }
 
 func WithLogLevel(level int) Option {
-	return func(o *ClientOptions) {
+	return func(o *ClientConfig) {
 		o.LogLevel = level
 	}
 }

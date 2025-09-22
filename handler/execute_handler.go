@@ -14,9 +14,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gomsr/xxl-job-client/constants"
-	"github.com/gomsr/xxl-job-client/logger"
-	"github.com/gomsr/xxl-job-client/transport"
+	"github.com/gomsr/atom-xxljob/constants"
+	"github.com/gomsr/atom-xxljob/logger"
+	"github.com/gomsr/atom-xxljob/transport"
 )
 
 var scriptMap = map[string]string{
